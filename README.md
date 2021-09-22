@@ -2,7 +2,7 @@
 
 Java SE 17 language Flex description; was made as a homework for a **compiler design principles** college course.
 
-For the description's shortcomings toward its goal, see [the repository's issues](https://github.com/agcom/lex-java/issues); if you found one that isn't acknowledged, submit it as a new issue.
+For the description's shortcomings, see [the issues](https://github.com/agcom/lex-java/issues); if you found one that isn't acknowledged, submit it as a new issue.
 
 ## Simple build & run
 
@@ -27,5 +27,5 @@ cat Example.java | $out
 
 - [Description file](desc.l)
 - [Issues](https://github.com/agcom/lex-java/issues)
-- Reference: [Java SE language specification / Chapter 3. Lexical Structure](https://docs.oracle.com/javase/specs/jls/se17/html/jls-3.html)
+- [Java SE language specification / Chapter 3. Lexical Structure](https://docs.oracle.com/javase/specs/jls/se17/html/jls-3.html)
 - [Flex](https://github.com/westes/flex)
