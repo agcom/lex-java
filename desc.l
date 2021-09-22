@@ -7,6 +7,12 @@
 #include <stdarg.h>
 %}
 
+Input {InputElement}*{Sub}?
+/* The ASCII SUB character */
+Sub \u001a
+InputElement {WhiteSpace}|{Comment}|{Token}
+Token {Identifier}|{Keyword}|{Literal}|{Separator}|{Operator}
+
 /* '\r' alone is a line terminator per Java 17 language specification. */
 /* "\r\n" which counts as one line terminator, has more precedence over '\r' then '\n', which counts as two line terminators. */
 LineTerminator \r\n|[\n\r]
@@ -22,6 +28,7 @@ Identifier {IdentifierStart}{IdentifierPart}*
 IdentifierStart [A-Za-z]|_|"\$"
 IdentifierPart {IdentifierStart}|[0-9]
 
+Keyword {ReservedKeyword}
 ReservedKeyword abstract|continue|for|new|switch|assert|default|if|package|synchronized|boolean|do|goto|private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|void|class|finally|long|strictfp|volatile|const|float|native|super|while|_|var|yield|permits|sealed|non-sealed|record
 
 Literal {IntegerLiteral}|{FloatingPointLiteral}|{BooleanLiteral}|{CharacterLiteral}|{StringLiteral}|{NullLiteral}
@@ -75,7 +82,7 @@ Operator [=><!~?:+\-*^%|&/]|->|==|>=|<=|!=|&&|\|\||\+\+|--|<<|>>|>>>|\+=|-=|\*=|
 
 %%
 
-{WhiteSpace}|{Comment} ;
+{WhiteSpace}|{Comment}|{Sub} ;
 
 {ReservedKeyword} printlnCurrentToken();
 {Literal} printlnCurrentTokenWithName("literal");
