@@ -3,6 +3,9 @@
 // Reference: https://docs.oracle.com/javase/specs/jls/se17/html/jls-3.html
 }
 
+%option nodefault
+%option main
+
 %{
 #include <stdarg.h>
 %}
@@ -118,11 +121,4 @@ void printfln(const char* format, ...) {
 	vprintf(format, args);
 	va_end(args);
 	printf("\n");
-}
-
-int yywrap() {
-	return 1;
-}
-void main() {
-	yylex();
 }
