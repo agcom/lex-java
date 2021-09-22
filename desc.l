@@ -75,15 +75,13 @@ Operator [=><!~?:+\-*^%|&/]|->|==|>=|<=|!=|&&|\|\||\+\+|--|<<|>>|>>>|\+=|-=|\*=|
 
 %%
 
-{WhiteSpace} ;
-{Comment} ;
+{WhiteSpace}|{Comment} ;
 
 {ReservedKeyword} printlnCurrentToken();
 {Literal} printlnCurrentTokenWithName("literal");
 {Identifier} printlnCurrentTokenWithName("identifier");
 
-{Separator} printlnCurrentToken();
-{Operator} printlnCurrentToken();
+{Separator}|{Operator} printlnCurrentToken();
 
 (?s:.) printlnCurrentTokenWithName("unknown");
 
