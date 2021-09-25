@@ -14,14 +14,10 @@ Input {InputElement}*
 InputElement {WhiteSpace}|{Comment}|{Token}
 Token {Identifier}|{Keyword}|{Literal}|{Separator}|{Operator}
 
-/* '\r' alone is a line terminator per Java 17 language specification. */
-/* "\r\n" which counts as one line terminator, has more precedence over '\r' then '\n', which counts as two line terminators. */
 LineTerminator \r\n|[\n\r]
 
-/* Any character (in Unicode, unless something else is forced by the regex driver) except '\r' and '\n'. */
 AnyCharacter [^\r\n]
 
-/* '\f' stands for the form feed character, and is counter as a white space per Java 17 language specification. */
 WhiteSpace [ \t\f]|{LineTerminator}
 Comment "//"{AnyCharacter}*|"/*"({AnyCharacter}|{LineTerminator})*"*/"
 
