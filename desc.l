@@ -68,13 +68,13 @@ BinaryExponent [pP][+-]?{FloatingPointDigits}
 BooleanLiteral true|false
 
 /* [^\r\n] stands for {AnyCharacter} */
-CharacterLiteral \'([^\r\n']|{EscapeSequence})\'
-EscapeSequence \\b|\\s|\\t|\\n|\\f|\\r|\\\"|\\\'|\\|{OctalEscape}
+CharacterLiteral \'([^\r\n'\\]|{EscapeSequence})\'
+EscapeSequence \\b|\\s|\\t|\\n|\\f|\\r|\\\"|\\\'|\\\\|{OctalEscape}
 OctalEscape \\{OctalDigit}{1,2}|\\{ZeroToThree}{OctalDigit}{2}
 ZeroToThree [0-3]
 
 /* [^\r\n] stands for {AnyCharacter} */
-StringLiteral \"([^\r\n"]|{EscapeSequence})*\"|{TextBlock}
+StringLiteral \"([^\r\n"\\]|{EscapeSequence})*\"|{TextBlock}
 TextBlock \"\"\"[ \t\f]*{LineTerminator}({AnyCharacter}|{EscapeSequence}|{LineTerminator})*\"\"\"
 
 NullLiteral null
