@@ -10,9 +10,7 @@
 #include <stdarg.h>
 %}
 
-Input {InputElement}*{Sub}?
-/* The ASCII SUB character */
-Sub \u001a
+Input {InputElement}*
 InputElement {WhiteSpace}|{Comment}|{Token}
 Token {Identifier}|{Keyword}|{Literal}|{Separator}|{Operator}
 
@@ -87,7 +85,7 @@ Operator [=><!~?:+\-*^%|&/]|->|==|>=|<=|!=|&&|\|\||\+\+|--|<<|>>|>>>|\+=|-=|\*=|
 
 %%
 
-{WhiteSpace}|{Comment}|{Sub} ;
+{WhiteSpace}|{Comment} ;
 
 {ReservedKeyword} printlnCurrentToken();
 {Literal} printlnCurrentTokenWithName("literal");
