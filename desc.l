@@ -69,8 +69,9 @@ BooleanLiteral true|false
 
 /* [^\r\n] stands for {AnyCharacter} */
 CharacterLiteral \'([^\r\n'\\]|{EscapeSequence})\'
-EscapeSequence \\b|\\s|\\t|\\n|\\f|\\r|\\\"|\\\'|\\\\|{OctalEscape}
+EscapeSequence \\b|\\s|\\t|\\n|\\f|\\r|\\\"|\\\'|\\\\|{OctalEscape}|{UnicodeEscape}
 OctalEscape \\{OctalDigit}{1,2}|\\{ZeroToThree}{OctalDigit}{2}
+UnicodeEscape \\u+{HexDigit}{4}
 ZeroToThree [0-3]
 
 /* [^\r\n] stands for {AnyCharacter} */
