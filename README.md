@@ -29,3 +29,42 @@ cat Example.java | $out
 - [Issues](https://github.com/agcom/lex-java/issues)
 - [Java SE language specification / Chapter 3. Lexical Structure](https://docs.oracle.com/javase/specs/jls/se17/html/jls-3.html)
 - [Flex](https://github.com/westes/flex)
+
+## Embedding
+
+If you want to use this as embedded, you probably need to expand some rules (and definitions); e.g. :point_down:
+
+```lex
+...
+ReservedKeyword {AbstractKeyword}|{ContinueKeyword}|{ForKeyword}|...
+AbstractKeyword abstract
+ContinueKeyword continue
+ForKeyword for
+...
+%%
+...
+{AbstractKeyword} {return ABSTRACT;}
+{ContinueKeyword} {return CONTINUE;}
+{ForKeyword} {return FOR;}
+...
+%%
+...
+```
+
+instead of :point_down:
+
+```lex
+...
+ReservedKeyword abstract|continue|for|...
+...
+%%
+...
+{ReservedKeyword} printlnCurrentToken();
+...
+%%
+...
+```
+
+The focus of this project is on its standard text output; token names (first word of each output line) are probable terminals of a grammar for Java 17 language.
+
+> Therefore, for example, it's normal to collapse all keywords in one rule, to save some ink and energy.
