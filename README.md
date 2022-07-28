@@ -1,3 +1,5 @@
+:warning: Archived in favor of [agcom/yacc-java](https://github.com/agcom/yacc-java). :warning:
+
 # Lex Java
 
 Java SE 17 language Flex description; was made as a homework for a **compiler design principles** college course.
